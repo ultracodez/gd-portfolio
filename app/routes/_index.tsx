@@ -87,20 +87,20 @@ export default function Index() {
   };
 
   return (
-    <div className="bg-slate-800 min-h-screen">
-      <div className="text-center pt-32 text-9xl text-white font-semibold">
+    <div className="bg-slate-800 min-h-screen overflow-hidden">
+      <div className="text-center pt-32 text-5xl lg:text-9xl text-white font-semibold">
         Hey, I'm <span className="text-pink-500 font-extrabold">Eduardo</span>
       </div>
-      <div className="text-center pt-3 text-6xl text-slate-300 font-semibold">
+      <div className="text-center pt-1 lg:pt-3 text-2xl lg:text-6xl text-slate-300 font-semibold">
         Graphic Design 2 Final Portfolio
       </div>
 
-      <div className="mx-96 pt-12 border-t-2 border-sky-400  mt-12  text-6xl text-center font-extrabold">
+      <div className="mx-24 lg:mx-96 pt-12 border-t-2 border-sky-400  mt-12  text-3xl lg:text-6xl text-center font-extrabold">
         Digital Art // Images
       </div>
 
       <div className="mt-12 flex justify-center">
-        <div className="w-2/3 columns-4 space-y-1 gap-6">
+        <div className="w-2/3 columns-2 lg:columns-4 space-y-1 gap-6">
           {(() => {
             var i = 0;
             var list = [];
@@ -135,7 +135,7 @@ export default function Index() {
         </div>
       </div>
 
-      <div className="mx-96 pt-12 border-t-2 border-sky-400  mt-12  text-6xl text-center font-extrabold">
+      <div className="mx-24 lg:mx-96 pt-12 border-t-2 border-sky-400  mt-12 text-3xl lg:text-6xl text-center font-extrabold">
         Digital Art // Animation
       </div>
 
