@@ -1,7 +1,11 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useRef, useState } from "react";
+import Image from "remix-image";
 import { Arrow } from "~/components/Arrow";
+import { EmailIcon } from "~/components/Email";
+import { InstagramIcon } from "~/components/Instagram";
 import { Shine } from "~/components/Shine";
+import { ThreadsIcon } from "~/components/Threads";
 
 export const meta: MetaFunction = () => {
   return [
@@ -35,7 +39,7 @@ const images = [
   { key: "Minimal Album Cover", url: "/crisis test.png" },
   { key: "Physics Test", url: "/huzzah_edited.png" },
   { key: "Random Ocean Scene", url: "/idrk.png" },
-  { key: "ReWild Album Cover", url: "/image1 (1).png" },
+  { key: "ReWild Album Cover", url: "/image1.png" },
   { key: "P2000 Poster", url: "/metro23.png" },
   { key: "Shoe Poster", url: "/shoead2.png" },
   { key: "Untitled", url: "/starfall.png" },
@@ -57,7 +61,7 @@ const images = [
 
   { key: "The Ghost", url: "/ghost.png" },
 
-  { key: "Fast & Furious Poster", url: "/whyisthespacingsobad (2).png" },
+  { key: "Fast & Furious Poster", url: "/whyisthespacingsobad.png" },
 
   { key: "Cupcake", url: "/cupcake.png" },
 
@@ -79,7 +83,7 @@ const images = [
 
   { key: "CNS - THE FINALS", url: "/cns3.png" },
 
-  { key: "Hopetoun Falls", url: "/Hopetoun_falls (1).png" },
+  { key: "Hopetoun Falls", url: "/Hopetoun_falls.png" },
 
   { key: "Storm - Commission", url: "/dissun_thestorm2.png" },
 
@@ -107,6 +111,7 @@ export default function Index() {
   const dImages = useRef<HTMLDivElement>(null);
   const dVideos = useRef<HTMLDivElement>(null);
   const dCast = useRef<HTMLDivElement>(null);
+  const twentyfour = useRef<HTMLDivElement>(null);
 
   return (
     <div className="bg-slate-800 min-h-screen overflow-hidden">
@@ -148,6 +153,15 @@ export default function Index() {
           <div className="text-center pt-1 lg:pt-3 text-2xl lg:text-6xl text-slate-300 font-semibold">
             Graphic Design 2 Final Portfolio
           </div>
+          <div className="flex">
+            <div className="mx-auto text-xl text-slate-300 pt-6 w-1/2 text-center">
+              This is my portfolio for Graphic Design 2. This website exists to
+              showcase my work from this and previous years. It’s a collection
+              of digital 2d art, 3d art and animation that I’ve created over the
+              past year in several different software programs, such as Adobe
+              Illustrator, Blender and the Affinity Suite.
+            </div>
+          </div>
           <div className="text-center pt-6  text-xl lg:hidden text-slate-600 font-semibold">
             (keep scrolling)
           </div>
@@ -162,6 +176,7 @@ export default function Index() {
       <div className="mt-12 flex justify-center">
         <div className="w-2/3 columns-2 lg:columns-4 space-y-1 gap-6">
           {images.map((image) => {
+            const optimized = "/optimized" + image.url;
             return (
               <div
                 className="group relative break-inside-avoid-column"
@@ -170,19 +185,20 @@ export default function Index() {
                 <div className="transition relative border-4 rounded-xl border-slate-400 group-hover:border-pink-500">
                   <img
                     className="transition  rounded-lg outline-slate-400 group-hover:outline-pink-500 outline-2 outline"
-                    src={image.url}
+                    src={optimized}
                   />
+
                   <div
                     className="transition absolute inset-0 size-full bg-transparent rounded-lg group-hover:bg-white group-hover:cursor-pointer z-10 opacity-30"
                     onClick={() => {
-                      openDialog(image.key, image.url);
+                      openDialog(image.key, optimized);
                     }}
                   ></div>
                 </div>
                 <div
                   className="transition  group-hover:underline group-hover:cursor-pointer text-center p-2 w-full font-semibold text-slate-200"
                   onClick={() => {
-                    openDialog(image.key, image.url);
+                    openDialog(image.key, optimized);
                   }}
                 >
                   {image.key}
@@ -223,7 +239,7 @@ export default function Index() {
         <div className="w-full px-4 lg:px-16 xl:px-0 xl:w-2/3 columns-2 space-y-6 gap-6">
           {videos.map((video) => {
             return (
-              <div className="break-inside-avoid-column">
+              <div key={video.key} className="break-inside-avoid-column">
                 <div className="aspect-video ">
                   <iframe
                     className="w-full h-full"
@@ -253,9 +269,26 @@ export default function Index() {
           )}
         </div>
       </div>
+      <div className="py-32">
+        <div ref={twentyfour} className="text-center text-7xl font-extrabold">
+          <span className="text-emerald-400">2024</span> RECAP
+        </div>
+
+        <div className="flex">
+          <div className="mx-auto w-1/2 text-center text-2xl">
+            Over the past year, I've learned and improved on several of my
+            skills, including 2D art, 3D art and animation. I worked with a
+            variety of different programs, including the Affinity Suite,
+            Blender, Adobe Illustrator and DaVinci Resolve. I enjoyed working
+            with my classmates in groups, and exploring a variety of different
+            styles with my art.
+          </div>
+        </div>
+      </div>
+
       <div
         ref={dCast}
-        className=" pt-12 border-y-2 bg-slate-900 border-sky-400 border-dashed mt-12 pb-12 text-3xl lg:text-9xl text-center font-extrabold"
+        className=" border-y-2 bg-slate-900 border-sky-400 border-dashed py-12 text-3xl lg:text-9xl text-center font-extrabold"
       >
         The Cast
       </div>
@@ -322,7 +355,36 @@ export default function Index() {
       </div>
 
       <div className="bg-slate-900 border-t-2 border-dashed border-slate-700 text-slate-500 py-20 text-center text-xl">
-        © 2024 Eduardo Maroto Campos
+        <div className="flex">
+          <div className="mx-auto flex gap-4 py-2">
+            <a
+              className="hover:text-slate-300"
+              href="https://instagram.com/ultrathethird"
+            >
+              <InstagramIcon />
+            </a>{" "}
+            <a
+              className="hover:text-slate-300"
+              href="https://www.threads.net/@ultrathethird"
+            >
+              {" "}
+              <ThreadsIcon />
+            </a>
+            <a
+              className="hover:text-slate-300"
+              href="mailto:ultracodez@outlook.com"
+            >
+              <EmailIcon />
+            </a>
+          </div>
+        </div>
+        <a
+          className="py-2 hover:underline text-center hover:text-slate-300"
+          href="mailto:ultracodez@outlook.com"
+        >
+          ultracodez@outlook.com
+        </a>
+        <div className="py-2">© 2024 Eduardo Maroto Campos</div>
       </div>
 
       {
