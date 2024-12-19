@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useRef, useState } from "react";
 import { Arrow } from "~/components/Arrow";
+import { Shine } from "~/components/Shine";
 
 export const meta: MetaFunction = () => {
   return [
@@ -8,14 +9,21 @@ export const meta: MetaFunction = () => {
     { name: "description", content: "Welcome to Remix!" },
   ];
 };
-const featuredVideo = { key: "The Heist", id: "ZPhyznErrxk" };
+const featuredVideo = { key: "The Heist", id: "ZPhyznErrxk", sparkle: true };
 // YOU MUST ADD featuredVideo back to videos
 const videos = [
-  { key: "Bitz_V2_Redacted.mov", id: "gnQ_epvTNOA" },
-  { key: "Custom Gem Shaders", id: "bMaJRJ2Zs1g" },
-  { key: "Ghost: A Cloth Simulation", id: "UtZlyLTCUmU" },
-  { key: "$Confidential_Laser_Cannon_332.mp4", id: "IIBrxQDZdlw" },
-  { key: "Bitz_Display_UpgradeV3.mov", id: "gQlB-3jOK_c" },
+  { key: "Bitz_V2_Redacted.mov", id: "gnQ_epvTNOA", sparkle: true },
+  { key: "Custom Gem Shaders", id: "bMaJRJ2Zs1g", sparkle: false },
+
+  { key: "Ghost: A Cloth Simulation", id: "UtZlyLTCUmU", sparkle: false },
+
+  { key: "Bitz goes to Paris", id: "X1FH1p__g0o", sparkle: true },
+  {
+    key: "$Confidential_Laser_Cannon_332.mp4",
+    id: "IIBrxQDZdlw",
+    sparkle: false,
+  },
+  { key: "Bitz_Display_UpgradeV3.mov", id: "gQlB-3jOK_c", sparkle: false },
 ];
 
 const images = [
@@ -103,7 +111,7 @@ export default function Index() {
   return (
     <div className="bg-slate-800 min-h-screen overflow-hidden">
       <div className="flex w-full bg-slate-800 border-b-2 border-slate-700 ">
-        <div className="w-full px-2 lg:w-1/2 mx-auto flex justify-between py-4">
+        <div className="w-full px-4 sm:w-3/4 md:w-2/3 lg:w-1/2 mx-auto flex justify-between py-4">
           <div
             className="hover:underline cursor-pointer hover:text-slate-300"
             onClick={() =>
@@ -212,7 +220,7 @@ export default function Index() {
         </div>
       </div>
       <div className="mt-12 flex justify-center">
-        <div className="w-full px-4 md:px-0 md:w-2/3 columns-2 space-y-6 gap-6">
+        <div className="w-full px-4 lg:px-16 xl:px-0 xl:w-2/3 columns-2 space-y-6 gap-6">
           {videos.map((video) => {
             return (
               <div className="break-inside-avoid-column">
@@ -226,8 +234,11 @@ export default function Index() {
                     allowFullScreen
                   ></iframe>
                 </div>
-                <div className="text-xs break-words lg:text-base text-center font-semibold pt-2">
-                  {video.key}
+                <div className="flex justify-center text-xs break-words lg:text-base text-center font-semibold pt-2">
+                  {video.key}{" "}
+                  {/*video.sparkle && (
+                    <Shine className="h-5 w-5 ml-2 fill-amber-300" />
+                  )*/}
                 </div>
               </div>
             );
@@ -256,7 +267,7 @@ export default function Index() {
           The OG of the show; here from the beginning.
         </div>
       </div>
-      <div className="min-h-screen bg-[#0601c4] lg:hidden">
+      <div className="md:min-h-screen bg-[#0601c4] lg:hidden">
         <img src="/aaa_00019_.png" className="" />
         <div className="text-9xl pt-4 sm:text-[12rem] font-extrabold text-center">
           BITZ
@@ -268,7 +279,7 @@ export default function Index() {
       <div className="hidden lg:block relative min-h-screen bg-[#85ff9e] text-slate-900">
         <img
           src="/firstafterbot.png"
-          className="absolute h-3/4 xl:h-full bottom-0 -left-52"
+          className="absolute h-3/4 2xl:h-full bottom-0 -left-52"
         />
         <div className="text-right text-[10rem]  xl:text-[14rem] ml-8 font-extrabold mr-8">
           GEORGE
@@ -281,8 +292,8 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <div className="min-h-screen bg-[#85ff9e] text-slate-900 lg:hidden">
-        <img src="/firstafterbot.png" className="" />
+      <div className=" md:min-h-screen bg-[#85ff9e] text-slate-900 lg:hidden">
+        <img src="/firstafterbot.png" className="pt-16" />
         <div className="text-6xl sm:text-8xl pt-4 md:text-[10rem] font-extrabold text-center">
           GEORGE
         </div>
@@ -299,7 +310,7 @@ export default function Index() {
           Meet the sci-fi stranger.
         </div>
       </div>
-      <div className="min-h-screen bg-[#020202] lg:hidden">
+      <div className="md:min-h-screen bg-[#020202] lg:hidden">
         <img src="/wipliquidv1.png" className="" />
         <div className="text-6xl sm:text-8xl pt-4 md:text-[10rem] font-extrabold text-center">
           CASCADE
