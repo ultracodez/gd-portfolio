@@ -326,7 +326,7 @@ export default function Index() {
         }`}
       >
         <div className="relative flex inset-0 z-30 size-full ">
-          <div className="m-auto relative w-fit h-3/4 overflow-hidden rounded-lg ">
+          <div className="m-auto relative h-fit w-3/4 lg:w-fit lg:h-3/4 overflow-hidden rounded-lg ">
             <img src={currentUrl} className="h-full  rounded-lg" />
             <div className="absolute bg-slate-900/50 rounded-bl-lg h-fit aspect-square pl-2 pr-2 -top-0.5 -right-0.5 ">
               <div
