@@ -234,8 +234,9 @@ export default function Index() {
                     allowFullScreen
                   ></iframe>
                 </div>
-                <div className="flex justify-center text-xs break-words lg:text-base text-center font-semibold pt-2">
+                <div className="text-xs break-words lg:text-base text-center font-semibold pt-2">
                   {video.key}{" "}
+                  {video.sparkle && <span className="ml-1">✨</span>}
                   {/*video.sparkle && (
                     <Shine className="h-5 w-5 ml-2 fill-amber-300" />
                   )*/}
