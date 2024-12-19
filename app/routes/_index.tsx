@@ -99,9 +99,9 @@ export default function Index() {
   const dImages = useRef<HTMLDivElement>(null);
   const dVideos = useRef<HTMLDivElement>(null);
   const dCast = useRef<HTMLDivElement>(null);
-
+  // z-[-2] bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]
   return (
-    <div className="bg-slate-800 min-h-screen overflow-hidden">
+    <div className="bg-slate-800 z-[-2]  bg-[radial-gradient(#3A4E6B_1px,#1e293b_1px)] bg-[size:20px_20px]  min-h-screen overflow-hidden">
       <div className="flex w-full bg-slate-800 border-b-2 border-slate-700 ">
         <div className="w-full px-2 lg:w-1/2 mx-auto flex justify-between py-4">
           <div
